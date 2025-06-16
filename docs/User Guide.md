@@ -80,7 +80,7 @@ The Raspberry Pi receives 5V power from the Power Supply via a USB C cable and s
 If Pi instability is observed, it can also be powered by a dedicated USB-C wall adaptor.
 
 ### Wiring Diagram
-![Wiring diagram](img/autonomous_guitar_wiring.png)
+![Wiring diagram](images/autonomous_guitar_wiring.png)
 
 ## 3.3 I²C Addressing
 *This step should already be done, but I am leaving it here just in case.*
