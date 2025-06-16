@@ -1,0 +1,142 @@
+{
+  "sections": {
+    "Default": [
+      { "beat": 0.0, "cmd": "Chord_F", "duration": 2.0 },
+      { "beat": 0.0, "cmd": "STRUM", "strings": [1,2,3,4] },
+      { "beat": 1.0, "cmd": "STRUM", "strings": [1,2,3,4] },
+
+      { "beat": 2.0, "cmd": "Chord_G", "duration": 2.0 },
+      { "beat": 2.0, "cmd": "STRUM", "strings": [0,1,2,3,4,5] },
+      { "beat": 3.0, "cmd": "STRUM", "strings": [0,1,2,3,4,5] },
+
+      { "beat": 4.0, "cmd": "Chord_C", "duration": 2.0 },
+      { "beat": 4.0, "cmd": "STRUM", "strings": [1,2,3,4,5] },
+      { "beat": 5.0, "cmd": "STRUM", "strings": [1,2,3,4,5] },
+
+      { "beat": 6.0, "cmd": "Chord_Am", "duration": 2.0 },
+      { "beat": 6.0, "cmd": "STRUM", "strings": [1,2,3,4,5] },
+      { "beat": 7.0, "cmd": "STRUM", "strings": [1,2,3,4,5] }
+    ],
+    "Default_FourAmEnd": [
+      { "beat": 0.0, "cmd": "Chord_F", "duration": 2.0 },
+      { "beat": 0.0, "cmd": "STRUM", "strings": [1,2,3,4] },
+      { "beat": 1.0, "cmd": "STRUM", "strings": [1,2,3,4] },
+
+      { "beat": 2.0, "cmd": "Chord_G", "duration": 2.0 },
+      { "beat": 2.0, "cmd": "STRUM", "strings": [0,1,2,3,4,5] },
+      { "beat": 3.0, "cmd": "STRUM", "strings": [0,1,2,3,4,5] },
+
+      { "beat": 4.0, "cmd": "Chord_C", "duration": 2.0 },
+      { "beat": 4.0, "cmd": "STRUM", "strings": [1,2,3,4,5] },
+      { "beat": 5.0, "cmd": "STRUM", "strings": [1,2,3,4,5] },
+
+      { "beat": 6.0, "cmd": "Chord_Am", "duration": 2.0 },
+      { "beat": 6.0, "cmd": "STRUM", "strings": [1,2,3,4,5] },
+      { "beat": 6.5, "cmd": "STRUM", "strings": [1,2,3,4,5] },
+      { "beat": 7.0, "cmd": "STRUM", "strings": [1,2,3,4,5] },
+      { "beat": 7.5, "cmd": "STRUM", "strings": [1,2,3,4,5] }
+    ],
+    "Default_E7AmEnd": [
+      { "beat": 0.0, "cmd": "Chord_F", "duration": 2.0 },
+      { "beat": 0.0, "cmd": "STRUM", "strings": [1,2,3,4] },
+      { "beat": 1.0, "cmd": "STRUM", "strings": [1,2,3,4] },
+
+      { "beat": 2.0, "cmd": "Chord_G", "duration": 2.0 },
+      { "beat": 2.0, "cmd": "STRUM", "strings": [0,1,2,3,4,5] },
+      { "beat": 3.0, "cmd": "STRUM", "strings": [0,1,2,3,4,5] },
+
+      { "beat": 4.0, "cmd": "Chord_C", "duration": 2.0 },
+      { "beat": 4.0, "cmd": "STRUM", "strings": [1,2,3,4,5] },
+
+      { "beat": 6.0, "cmd": "Chord_E7", "duration": 1.0 },
+      { "beat": 6.0, "cmd": "STRUM", "strings": [0,1,2,3,4,5] },
+
+      { "beat": 7.0, "cmd": "Chord_Am", "duration": 1.0 },
+      { "beat": 7.0, "cmd": "STRUM", "strings": [1,2,3,4,5] }
+    ],
+    "DefaultFourStrums": [
+      { "beat": 0.0, "cmd": "Chord_F", "duration": 2.0 },
+      { "beat": 0.0, "cmd": "STRUM", "strings": [1,2,3,4] },
+      { "beat": 0.5, "cmd": "STRUM", "strings": [1,2,3,4] },
+      { "beat": 1.0, "cmd": "STRUM", "strings": [1,2,3,4] },
+      { "beat": 1.5, "cmd": "STRUM", "strings": [1,2,3,4] },
+
+      { "beat": 2.0, "cmd": "Chord_G", "duration": 2.0 },
+      { "beat": 2.0, "cmd": "STRUM", "strings": [0,1,2,3,4,5] },
+      { "beat": 2.5, "cmd": "STRUM", "strings": [0,1,2,3,4,5] },
+      { "beat": 3.0, "cmd": "STRUM", "strings": [0,1,2,3,4,5] },
+      { "beat": 3.5, "cmd": "STRUM", "strings": [0,1,2,3,4,5] },
+
+      { "beat": 4.0, "cmd": "Chord_C", "duration": 2.0 },
+      { "beat": 4.0, "cmd": "STRUM", "strings": [1,2,3,4,5] },
+      { "beat": 4.5, "cmd": "STRUM", "strings": [1,2,3,4,5] },
+      { "beat": 5.0, "cmd": "STRUM", "strings": [1,2,3,4,5] },
+      { "beat": 5.5, "cmd": "STRUM", "strings": [1,2,3,4,5] },
+
+      { "beat": 6.0, "cmd": "Chord_Am", "duration": 2.0 },
+      { "beat": 6.0, "cmd": "STRUM", "strings": [1,2,3,4,5] },
+      { "beat": 6.5, "cmd": "STRUM", "strings": [1,2,3,4,5] },
+      { "beat": 7.0, "cmd": "STRUM", "strings": [1,2,3,4,5] },
+      { "beat": 7.5, "cmd": "STRUM", "strings": [1,2,3,4,5] }
+    ],
+    "DefaultOneStrum": [
+      { "beat": 0.0, "cmd": "Chord_F", "duration": 2.0 },
+      { "beat": 0.0, "cmd": "STRUM", "strings": [1,2,3,4] },
+
+      { "beat": 2.0, "cmd": "Chord_G", "duration": 2.0 },
+      { "beat": 2.0, "cmd": "STRUM", "strings": [0,1,2,3,4,5] },
+
+      { "beat": 4.0, "cmd": "Chord_C", "duration": 2.0 },
+      { "beat": 4.0, "cmd": "STRUM", "strings": [1,2,3,4,5] },
+
+      { "beat": 6.0, "cmd": "Chord_Am", "duration": 2.0 },
+      { "beat": 6.0, "cmd": "STRUM", "strings": [1,2,3,4,5] }
+    ],
+    "DefaultOneStrum_E7AmEnd": [
+      { "beat": 0.0, "cmd": "Chord_F", "duration": 2.0 },
+      { "beat": 0.0, "cmd": "STRUM", "strings": [1,2,3,4] },
+
+      { "beat": 2.0, "cmd": "Chord_G", "duration": 2.0 },
+      { "beat": 2.0, "cmd": "STRUM", "strings": [0,1,2,3,4,5] },
+
+      { "beat": 4.0, "cmd": "Chord_C", "duration": 2.0 },
+      { "beat": 4.0, "cmd": "STRUM", "strings": [1,2,3,4,5] },
+
+      { "beat": 6.0, "cmd": "Chord_E7", "duration": 1.0 },
+      { "beat": 6.0, "cmd": "STRUM", "strings": [0,1,2,3,4,5] },
+
+      { "beat": 7.0, "cmd": "Chord_Am", "duration": 2.0 },
+      { "beat": 7.0, "cmd": "STRUM", "strings": [1,2,3,4,5] }
+    ]
+  },
+  "timeline": [
+      { "beat": 0.0,  "cmd": "Default" },
+      { "beat": 8.0,  "cmd": "Default" },
+
+      { "beat": 16.0,  "cmd": "Default" },
+      { "beat": 24.0,  "cmd": "Default" },
+      { "beat": 32.0,  "cmd": "Default" },
+      { "beat": 40.0,  "cmd": "Default_FourAmEnd" },
+
+      { "beat": 48.0,  "cmd": "Default" },
+      { "beat": 56.0,  "cmd": "Default_E7AmEnd" },
+      { "beat": 64.0,  "cmd": "Default_E7AmEnd" },
+      { "beat": 72.0,  "cmd": "Default_FourAmEnd" },
+
+      { "beat": 80.0,  "cmd": "DefaultFourStrums" },
+      { "beat": 88.0,  "cmd": "DefaultFourStrums" },
+      { "beat": 96.0,  "cmd": "DefaultFourStrums" },
+      { "beat": 104.0,  "cmd": "DefaultFourStrums" },
+
+      { "beat": 112.0,  "cmd": "DefaultOneStrum" },
+      { "beat": 120.0,  "cmd": "DefaultOneStrum_E7AmEnd" },
+      { "beat": 128.0,  "cmd": "Default_E7AmEnd" },
+      { "beat": 136.0,  "cmd": "Default_FourAmEnd" },
+
+      { "beat": 144.0,  "cmd": "Default" },
+      { "beat": 152.0,  "cmd": "Default" },
+      { "beat": 160.0,  "cmd": "Default" },
+      { "beat": 168.0,  "cmd": "Default" }
+  ]
+}
+

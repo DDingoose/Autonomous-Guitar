@@ -1,0 +1,39 @@
+{
+  "sections": {
+    "Bar1": [
+      { "beat": 0.0, "cmd": "G2", "duration": 0.75 },
+      { "beat": 0.75, "cmd": "B0", "duration": 0.25 },
+      { "beat": 1.0, "cmd": "G2", "duration": 0.5 },
+      { "beat": 1.5, "cmd": "G0", "duration": 0.5 }
+    ],
+    "Bar2": [
+      { "beat": 0.0, "cmd": "D4", "duration": 0.5 },
+      { "beat": 0.5, "cmd": "G0", "duration": 0.5 },
+      { "beat": 1.0, "cmd": "G2", "duration": 1.0 }
+    ]
+  },
+  "timeline": [
+	{ "beat": 0.0, "cmd": "Bar1" },
+
+	{ "beat": 2.0, "cmd": "Bar2" },
+
+	{ "beat": 4.0, "cmd": "D2", "duration": 0.5 },
+	{ "beat": 4.5, "cmd": "D4", "duration": 0.5 },
+	{ "beat": 5.0, "cmd": "G0", "duration": 1.0 },
+
+	{ "beat": 6.0, "cmd": "D4", "duration": 0.5 },
+	{ "beat": 6.5, "cmd": "G0", "duration": 0.5 },
+	{ "beat": 7.0, "cmd": "G2", "duration": 1.0 },
+
+	{ "beat": 8.0, "cmd": "Bar1" },
+
+	{ "beat": 10.0, "cmd": "Bar2" },
+
+	{ "beat": 12.0, "cmd": "D2", "duration": 1.0 },
+	{ "beat": 13.0, "cmd": "G2", "duration": 1.0 },
+
+	{ "beat": 14.0, "cmd": "D4", "duration": 0.5 },
+	{ "beat": 14.5, "cmd": "D0", "duration": 1.5 }
+
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "sections": {
+    "Bar1": [
+      { "beat": 0.0,  "cmd": "B1", "duration": 0.5 },
+      { "beat": 0.5,  "cmd": "B1", "duration": 0.5 },
+      { "beat": 1.0,  "cmd": "B1", "duration": 1.0 },
+      { "beat": 2.0,  "cmd": "E0", "duration": 2.0 }
+    ],
+   "Bar2": [
+      { "beat": 0.0,  "cmd": "B0", "duration": 1.0 },
+      { "beat": 1.0,  "cmd": "B3", "duration": 1.0 },
+      { "beat": 2.0,  "cmd": "B1", "duration": 1.0 },
+      { "beat": 3.0,  "cmd": "B0", "duration": 1.0 },
+      { "beat": 4.0,  "cmd": "G2", "duration": 2.0 }
+    ]
+  },
+
+  "timeline": [
+    { "beat": 0.0,  "cmd": "B3", "duration": 1.0 },
+    { "beat": 1.0,  "cmd": "B3", "duration": 1.0 },
+    { "beat": 2.0,  "cmd": "G2", "duration": 2.0 },
+
+    { "beat": 4.0,  "cmd": "Bar1" },
+    { "beat": 8.0,  "cmd": "G2", "duration": 0.5 },
+    { "beat": 8.5,  "cmd": "G2", "duration": 0.5 },
+    { "beat": 9.0,  "cmd": "G2", "duration": 1.0 },
+    { "beat": 10.0,  "cmd": "B0", "duration": 2.0 },
+    { "beat": 12.0,  "cmd": "G0", "duration": 0.5 },
+    { "beat": 12.5,  "cmd": "G0", "duration": 0.5 },
+    { "beat": 13.0,  "cmd": "G0", "duration": 1.0 },
+    { "beat": 14.0,  "cmd": "Bar2" },
+	
+    { "beat": 20.0,  "cmd": "Bar1" },
+    { "beat": 24.0,  "cmd": "G2", "duration": 0.5 },
+    { "beat": 24.5,  "cmd": "G2", "duration": 0.5 },
+    { "beat": 25.0,  "cmd": "G2", "duration": 1.0 },
+    { "beat": 26.0,  "cmd": "B0", "duration": 2.0 },
+    { "beat": 28.0,  "cmd": "G0", "duration": 1.0 },
+    { "beat": 29.0,  "cmd": "G0", "duration": 1.0 },
+    { "beat": 30.0,  "cmd": "Bar2" },
+	
+    { "beat": 36.0,  "cmd": "Bar1" },
+    { "beat": 40.0,  "cmd": "G2", "duration": 1.0 },
+    { "beat": 41.0,  "cmd": "G2", "duration": 1.0 },
+    { "beat": 42.0,  "cmd": "B0", "duration": 2.0 },
+    { "beat": 44.0,  "cmd": "G0", "duration": 0.5 },
+    { "beat": 44.5,  "cmd": "G0", "duration": 0.5 },
+    { "beat": 45.0,  "cmd": "G0", "duration": 1.0 },
+    { "beat": 46.0,  "cmd": "Bar2" },
+
+    { "beat": 52.0,  "cmd": "Bar1" },
+    { "beat": 56.0,  "cmd": "G2", "duration": 0.5 },
+    { "beat": 56.5,  "cmd": "G2", "duration": 0.5 },
+    { "beat": 57.0,  "cmd": "G2", "duration": 1.0 },
+    { "beat": 58.0,  "cmd": "B0", "duration": 2.0 },
+    { "beat": 60.0,  "cmd": "G0", "duration": 1.0 },
+    { "beat": 61.0,  "cmd": "G0", "duration": 1.0 },
+    { "beat": 62.0,  "cmd": "Bar2" }
+    ]
+  }
+
+

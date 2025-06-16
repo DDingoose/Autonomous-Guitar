@@ -1,0 +1,138 @@
+/* ----------------- Base tokens ----------------- */
+:root{
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+
+  --c-bg:      #181818;
+  --c-card:    #212121;
+  --c-primary: #00bcd4;
+  --c-text:    #ffffff;
+  --c-muted:   #888888;
+}
+
+/* Reset + typography */
+*{margin:0;padding:0;box-sizing:border-box}
+html{font-size:18px}
+body{
+  font-family:'Roboto',sans-serif;
+  background:var(--c-bg);
+  color:var(--c-text);
+  touch-action:manipulation;
+  user-select:none;
+  display:flex;flex-direction:column;
+  height:100vh;overflow:hidden;
+}
+
+/* ----- Header bar ----- */
+#top-bar{
+  flex:0 0 48px;
+  display:flex;align-items:center;justify-content:center;
+  padding:0 var(--space-2);
+  background:var(--c-card);
+  box-shadow:0 2px 4px rgba(0,0,0,.4);
+  z-index:10;
+}
+
+.header-title {
+  width: 100%;
+  text-align:center;
+  font-size:1.4rem}
+
+#status-text{display: none;}
+
+/* ----- Library view ----- */
+#library-view{
+  flex:1;display:flex;flex-direction:column;align-items:center;
+  padding:var(--space-2);overflow:hidden;position:relative}
+.app-title{font-size:2rem;margin-bottom:var(--space-2)}
+
+.song-list{
+  flex:1;width:100%;overflow-y:auto;scrollbar-width:none;
+  display:flex;flex-direction:column;gap:var(--space-1);
+  touch-action: pan-y;overscroll-behaviour: contain;
+  -webkit-overflow-scrolling: touch;}
+.song-list::-webkit-scrollbar{display:none}
+
+.song-card{
+  background:linear-gradient(145deg,#333,#212);
+  border-radius:12px;padding:var(--space-2);
+  font-size:1.6rem;font-weight:500;text-align:center;
+  transition:transform .25s,background .25s;
+  cursor:pointer; width: 80%; margin: 0 auto;}
+.song-card.selected{background:var(--c-primary);box-shadow:0 0 12px #00bcd4}
+.song-card:active { transform: scale(0.95); }
+
+.fab{
+  position:absolute;bottom:var(--space-3);right:var(--space-3);
+  width:100px;height:100px;border-radius:50%;
+  border:none;background:var(--c-primary);color:var(--c-text);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 10px rgba(0,0,0,.5);
+  transition:background .2s,transform .2s}
+.fab:disabled{background:var(--c-muted);box-shadow:none}
+.fab:not(:disabled):active{transform:scale(.9)}
+.fab-icon{fill:currentColor;width:50px;height:50px}
+
+#play-btn .fab-icon {
+  transform: translateX(3px);width:60px;height:60px
+}
+
+/* ----- Playing view ----- */
+#playing-view{
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  background:var(--c-bg);transform:translateY(100%);opacity:0;pointer-events:none;
+  transition:transform .35s ease,opacity .35s ease}
+#playing-view.active{transform:translateY(0);opacity:1;pointer-events:auto}
+
+.now-card {
+  background: var(--c-card);
+  padding: 2rem;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  width: 90%;
+  height: 75%;
+  max-width: 420px;
+  box-shadow: 0 8px 18px rgba(0,0,0,.6);
+  position: relative;
+}
+  
+#now-title{font-size:2.2rem;text-align:center}
+
+.ring{
+width:220px;height:220px;
+width: 100%; height: 100%;
+transform:rotate(-90deg);
+overflow: visible;}
+.ring-bg{fill:none;stroke:#444;stroke-width:12}
+.ring-fg{fill:none;stroke:var(--c-primary);stroke-width:14;
+         stroke-dasharray:339;stroke-dashoffset:339;
+         transition:stroke-dashoffset .1s linear}
+
+/* wrap ring + stop-button so the FAB can centre over it */
+.ring-wrapper {
+  position: relative;
+  width: 220px;
+  height: 220px;
+  margin: var(--space-2) 0; /* give some vertical breathing room */
+}
+
+/* centre the stop FAB half-over the ring */
+.fab-stop {
+  /* remove any bottom/right overrides */
+  bottom: auto !important;
+  right: auto !important;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 130px;
+  height: 130px;
+  transform: translate(-50%, -50%);
+}
+.fab-stop:not(:disabled):active {
+  transform: translate(-50%, -50%) scale(.9);
+}

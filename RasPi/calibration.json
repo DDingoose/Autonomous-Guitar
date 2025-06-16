@@ -1,0 +1,66 @@
+{
+  "picking": {
+    "e": {"servo": 0, "neutral": 70, "up": 140, "down": 70},
+    "A": {"servo": 1, "neutral": 70, "up": 140, "down": 70},
+    "D": {"servo": 2, "neutral": 70, "up": 140, "down": 70},
+    "G": {"servo": 3, "neutral": 70, "up": 140, "down": 70},
+    "B": {"servo": 4, "neutral": 70, "up": 140, "down": 70},
+    "E": {"servo": 5, "neutral": 70, "up": 140, "down": 70}
+  },
+  "fretting": {
+    "e": {
+      "neutral": {"6": 120, "12": 120},
+      "frets": {
+        "1": {"servo": 6, "press": 70, "release": 120},
+        "2": {"servo": 6, "press": 170, "release": 120},
+        "3": {"servo": 12, "press": 70, "release": 120},
+        "4": {"servo": 12, "press": 170, "release": 120}
+      }
+    },
+    "A": {
+      "neutral": {"7": 120, "13": 120},
+      "frets": {
+        "1": {"servo": 7, "press": 70, "release": 120},
+        "2": {"servo": 7, "press": 170, "release": 120},
+        "3": {"servo": 13, "press": 70, "release": 120},
+        "4": {"servo": 13, "press": 170, "release": 120}
+      }
+    },
+    "D": {
+      "neutral": {"8": 120, "14": 120},
+      "frets": {
+        "1": {"servo": 8, "press": 70, "release": 120},
+        "2": {"servo": 8, "press": 170, "release": 120},
+        "3": {"servo": 14, "press": 70, "release": 120},
+        "4": {"servo": 14, "press": 170, "release": 120}
+      }
+    },
+    "G": {
+      "neutral": {"9": 120, "15": 120},
+      "frets": {
+        "1": {"servo": 9, "press": 170, "release": 120},
+        "2": {"servo": 9, "press": 70, "release": 120},
+        "3": {"servo": 15, "press": 170, "release": 120},
+        "4": {"servo": 15, "press": 70, "release": 120}
+      }
+    },
+    "B": {
+      "neutral": {"10": 120, "16": 120},
+      "frets": {
+        "1": {"servo": 10, "press": 160, "release": 120},
+        "2": {"servo": 10, "press": 75, "release": 120},
+        "3": {"servo": 16, "press": 170, "release": 120},
+        "4": {"servo": 16, "press": 70, "release": 120}
+      }
+    },
+    "E": {
+      "neutral": {"11": 120, "17": 120},
+      "frets": {
+        "1": {"servo": 11, "press": 170, "release": 120},
+        "2": {"servo": 11, "press": 70, "release": 120},
+        "3": {"servo": 17, "press": 170, "release": 120},
+        "4": {"servo": 17, "press": 70, "release": 120}
+      }
+    }
+  }
+}

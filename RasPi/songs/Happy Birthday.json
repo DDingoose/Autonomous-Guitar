@@ -1,0 +1,38 @@
+{
+  "sections": {
+    "Bar1": [
+      { "beat": 0.0,  "cmd": "G0", "duration": 0.5 },
+      { "beat": 0.5,  "cmd": "G0", "duration": 0.5 },
+      { "beat": 1.0,  "cmd": "G2", "duration": 1.0 },
+      { "beat": 2.0,  "cmd": "G0", "duration": 1.0 }
+    ]
+  },
+  "timeline": [
+        { "beat": 0.0,  "cmd": "Bar1" },
+	
+	{ "beat": 3.0,  "cmd": "B1", "duration": 1.0 },
+        { "beat": 4.0,  "cmd": "B0", "duration": 2.0 },
+	
+	{ "beat": 6.0,  "cmd": "Bar1" },
+	
+	{ "beat": 9.0,  "cmd": "B3", "duration": 1.0 },
+        { "beat": 10.0,  "cmd": "B1", "duration": 2.0 },
+	
+	{ "beat": 12.0,  "cmd": "G0", "duration": 0.5 },
+	{ "beat": 12.5,  "cmd": "G0", "duration": 0.5 },
+	{ "beat": 13.0,  "cmd": "E3", "duration": 1.0 },
+	{ "beat": 14.0,  "cmd": "E0", "duration": 1.0 },
+	
+	{ "beat": 15.0,  "cmd": "B1", "duration": 1.0 },
+        { "beat": 16.0,  "cmd": "B0", "duration": 1.0 },
+        { "beat": 17.0,  "cmd": "G2", "duration": 1.0 },
+	
+	{ "beat": 18.0,  "cmd": "E1", "duration": 0.5 },
+	{ "beat": 18.5,  "cmd": "E1", "duration": 0.5 },
+	{ "beat": 19.0,  "cmd": "E0", "duration": 1.0 },
+	{ "beat": 20.0,  "cmd": "B1", "duration": 1.0 },
+	
+	{ "beat": 21.0,  "cmd": "B3", "duration": 1.0 },
+	{ "beat": 22.0,  "cmd": "B1", "duration": 2.0 }
+  ]
+}
