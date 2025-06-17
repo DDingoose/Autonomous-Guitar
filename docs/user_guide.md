@@ -81,10 +81,10 @@ The Arduino Mega has a serial connection with the Raspberry Pi and sends I2C sig
 ### Raspberry Pi
 The Raspberry Pi receives 5V power from the Power Supply via a USB C cable and serial commands to the Arduino.
 
-| From            | To      | Notes |     |
-| --------------- | ------- | ----- | --- |
-| SMPS Output +ve | EXT +ve | Power |     |
-| SMPS Output -ve | EXT -ve |       |     |
+| From            | To      | Notes |
+| --------------- | ------- | ----- |
+| SMPS Output +ve | EXT +ve | Power |
+| SMPS Output -ve | EXT -ve |       |
 
 
 If Pi instability is observed, it can also be powered by a dedicated USB-C wall adaptor.
