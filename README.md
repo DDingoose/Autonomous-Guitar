@@ -8,7 +8,7 @@ This was made as a capstone project for UCL Mechanical Engineering (2025).
 
 **Watch it play:**
 
-[![Watch the playlist on YouTube](https://img.youtube.com/vi/PY2tfHVHB4E/hqdefault.jpg)](https://www.youtube.com/playlist?list=PLb9mSR-lN_d_GtLbXkXRv01xG--_rrkUY)
+[![Watch the first video](https://img.youtube.com/vi/PY2tfHVHB4E/hqdefault.jpg)](https://www.youtube.com/watch?v=PY2tfHVHB4E&list=PLb9mSR-lN_d_GtLbXkXRv01xG--_rrkUY)
 
 ## Features
 - **18‑servo mechanism** – 6 high‑torque picking servos over the sound‑hole, 12 micro‑servos fretting up the neck.
