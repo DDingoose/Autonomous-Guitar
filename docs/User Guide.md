@@ -3,11 +3,20 @@ In its current state, the Raspberry Pi does not have the software installed. I s
 
 However, everything else should be in place. The Arduino should already contain the required sketch, and most of the wires should be connected.
 
-Thus, to get the autonomous guitar working, you need to connect the Power Supply wires and install the Raspberry Pi software.
+Thus, to get the autonomous guitar working, you need:
+1. Disassemble the housing.
+2. Insert the microSD card into the Raspberry Pi.
+3. Set up the Pi’s software (you may need a keyboard and mouse for this).
+4. Connect the Pi and two servo drivers to the Power Supply.
+5. Set the Power Supply to 5 V.
 
 # 1. Introduction
-- High-level architecture: Pi ⇄ Serial ⇄ Arduino Mega ⇄ I²C ⇄ PCA9685 ⇄ Servos.
-- 
+The Autonomous Guitar is a proof-of-concept mechatronic instrument that can pick, strum and fret a standard six-string guitar without human hands. Six servos stroke the strings above the sound-hole, while twelve micro-servos press frets along the neck.
+
+An Arduino Mega 2560 drives the servos in real time via two PCA9685 PWM boards; a Raspberry Pi 5 schedules musical events, hosts a small Flask web app, and sends packets to the Arduino over USB serial. 
+
+All firmware, Python code and wiring diagrams are open-source so others can extend the system. In short, this guide shows you how to power up, install the software and have the guitar play itself.
+
 # 2.  Bill of Materials
 
 | Qty | Item                               | Notes                                                 |
@@ -21,12 +30,12 @@ Thus, to get the autonomous guitar working, you need to connect the Power Supply
 | 1   | 5 V power supply                   | IMPORTANT: Must be set to around 5 V to work properly |
 
 # 3. Electronics & Wiring
-## 3.1 Power Topology
+## 3.1. Power Topology
 - 5 V supply → PCA9685 external +ve and -ve screw terminals → servos.
 - Pi USB-C may be fed by the SMPS or its own PSU
 - Grounds: tie Pi GND, Arduino GND, servo GND together.
 
-## 3.2 Connections
+## 3.2. Connections
 A diagram is given below.
 
 ### Switched-Mode Power Supply (SMPS)
@@ -77,12 +86,13 @@ The Raspberry Pi receives 5V power from the Power Supply via a USB C cable and s
 | SMPS Output +ve | EXT +ve | Power |     |
 | SMPS Output -ve | EXT -ve |       |     |
 
+
 If Pi instability is observed, it can also be powered by a dedicated USB-C wall adaptor.
 
 ### Wiring Diagram
-![Wiring diagram](images/autonomous_guitar_wiring.png)
+![Wiring diagram](images/wiring_diagram.png)
 
-## 3.3 I²C Addressing
+## 3.3. I²C Addressing
 *This step should already be done, but I am leaving it here just in case.*
 
 | Board | Function        | A0  | A1  | A2  | I²C address |
@@ -90,7 +100,7 @@ If Pi instability is observed, it can also be powered by a dedicated USB-C wall 
 | **0** | Fretting servos | 0   | 0   | 0   | `0x40`      |
 | **1** | Picking servos  | 1   | 0   | 0   | `0x41`      |
 
-## 3.4 Servo Channel Map
+## 3.4. Servo Channel Map
 
 |Logical index|Function|Board|Channel|
 |--:|---|--:|--:|
@@ -168,6 +178,7 @@ dtoverlay=vc4-kms-dsi-7inch
 ```
 # Update the operating system
 sudo apt update && sudo apt full-upgrade -y
+sudo apt install python3-venv
 
 #Reboot the system
 sudo reboot
@@ -195,7 +206,7 @@ This installs flask and pyserial.
 python app.py
 ```
 
-You should see: `Running on http://<Pi-IP-address>5000/ (Press CTRL+C to quit)`
+You should see: `Running on http://<Pi-IP-address>:5000/ (Press CTRL+C to quit)`
 
 7. **Launch web app in Chromium**
 ```
@@ -233,14 +244,85 @@ sudo systemctl enable --now autonomous-guitar
 - `static/` – front-end HTML/JS/CSS. Adjust if you customise the web UI.
 - `calibration.json` – update neutral/press/release angles to match your own servos.
 
-
-
 # 6. Playing a Song
-- Copy JSON scores into `songs/`.
-- Web UI: **Play**, **Stop**, progress bar.
+*These steps should already be done, but I am leaving them here just in case.*
 
-# Troubleshooting
+| Step | Action           | Command / Click                                                                                                                      | What to expect                                                                                                                                   |
+| ---- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 1    | Choose a score   | On the touchscreen (or any browser) open **http:// <pi-ip>:5000** → drop-down list shows all `songs/*.json` files.                   | The title and duration appear under the **Play** button.                                                                                         |
+| 2    | Start playback   | Press **Play** (UI)  **or**`curl -X POST -H "Content-Type: application/json" \` `-d '{"song":"Fur_Elise"}' http://<pi-ip>:5000/play` | The progress bar stays at 0 % for ≈1 s while the Pi and Arduino synchronise, then advances in real time. Servos begin to move on the first beat. |
+| 3    | Monitor progress | Blue ring grows from 0–100 %. **Status** endpoint shows JSON: `{"state":"playing","pct":0.42}`.                                      | If anything stalls, tap **Stop** or send the stop call below.                                                                                    |
+| 4    | Stop / reset     | Press **Stop** (UI)  **or**`curl -X POST http://<pi-ip>:5000/stop`                                                                   | The Pi transmits **STOP** + **RESET** packets; all servos return to their neutral angles. `DONE` prints on the Arduino serial monitor.           |
+## 6.1. Adding or replacing songs
+1. Create a new `<name>.json` file that follows the existing schema (`timeline`, optional `sections`).
+2. Copy it into the `songs/` folder on the Pi (`scp`, `git pull`, or the web editor).
+3. Refresh the web page. Your song will appear in the drop-down.
 
-# Other Notes
-## Calibration
-Edit `calibration.json` – fill in neutral, up, down, press, release angles.
+# 7. Troubleshooting
+## 7.1. General diagnostic routine
+1. **Power** – Confirm 5.0 ± 0.1 V on the V+ rail _with servos energised_.
+2. **USB** – Re-insert the Arduino cable; wait for `/dev/ttyACM0` to re-appear.
+3. **Serial monitor** (`115200 baud`) – look for `STOPPED`, `RESET_DONE`, `DONE`, or buffer errors.
+4. **Log the Pi console** – run `python app.py` from SSH to watch scheduling output live.
+
+| Symptom (what you see / hear)                                                     | Likely cause                                              | Quick check                                                           | Fix                                                                                                   |
+| --------------------------------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| “**RemoteControl: Servo drivers initialised.**” _never appears in Serial Monitor_ | SDA/SCL swapped or PCA9685 not powered                    | Multimeter: 5 V on PCA boards; continuity on SDA/SCL pins             | Re-seat JST / Dupont leads; verify board at address 0×41 (picking) has A0 jumper soldered.            |
+| **Servos twitch or chatter at power-on**                                          | No RESET packet from Pi; calibration angles wrong         | Serial monitor shows no “RESET_DONE”; check `calibration.json` values | Press **Stop** in the web UI or run `curl -X POST <pi>/stop`; correct neutral angles and re-start.    |
+| **“ERROR: command buffer full”** on Arduino                                       | Pi is sending events faster than the Arduino can schedule | `WINDOW_MS` too large or song too dense                               | Reduce `WINDOW_MS` in `scheduler.py` (e.g. 5000 ms); shorten the JSON timeline; split complex chords. |
+| **Flask banner appears, but page 404s** when pressing **Play**                    | Song filename mismatch                                    | `ls songs/*.json`                                                     | Use the dropdown list; omit the `.json` suffix in the POST body.                                      |
+| **Some frets never press fully**                                                  | Wrong servo mapping or channel unplugged                  | `RemoteScheduler.ino` mapping table lines 1–18                        | Trace the wire to the correct PCA9685 channel; update `addServo()` indices if hardware changed.       |
+| **Pi shows “Address already in use”**                                             | `app.py` already running (duplicate instance)             | `ps aux                                                               | grep app.py`                                                                                          |
+
+# 8. Calibration
+## 8.1. JSON Layout
+```
+{
+  "picking": {
+    "e": {          // low-E string pick servo (index 0)
+      "neutral": 92,
+      "up":      70,
+      "down":   115
+    },
+    "A": { … },
+    …
+  },
+  "fretting": {
+    "e": {          // fretting servos on the low-E string
+      "neutral": { "6": 88, "12": 87 },        // neutral by servo index
+      "frets": {
+        "1": { "press": 104, "release": 88 },
+        "2": { "press": 118, "release": 88 },
+        …
+      }
+    },
+    …
+  }
+}
+```
+
+- **neutral:** angle that just clears the string when idle
+- **up / down:** picking stroke limits (alternating each pluck)
+- **press / release:** fret angles for each fret number
+
+Servo indices 0-5 = picking (board 1 channels 0-5) 6-17 = fretting (board 0 channels 0-11).
+
+## 8.2 Picking Servo Calibration
+| Task               | How                                                                                                                                                                                                      |
+| ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **1. Neutral**     | Edit `picking.<string>.neutral`. Run the `RESET` song). The pick should hover a few mm clear of the string.                                                                                              |
+| **2. Down-stroke** | Create/modify a one-line song file, or use the `TEST_ROUTINE` song, which tests every possible note for all six strings and four frets. Ensure the pick moves past the string for all fret combinations. |
+| **3. Up-stroke**   | Same as above                                                                                                                                                                                            |
+| **4. Repeat**      | Do the same for strings A-D-G-B-high E.                                                                                                                                                                  |
+## 8.3 Fretting Servo Calibration
+| Task                 | How                                                                                                                                                                                                                                                              |
+| -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **1. Neutral**       | In `fretting.<string>.neutral.<idx>` set a value so the pad sits 1-2 mm clear of the string.Play the `RESET` song to check clearance.                                                                                                                            |
+| **2. Press angle**   | Choose a note, e.g. low-E 3rd fret. Edit `frets."3".press` for that string. Start with `neutral + 15`. Make a quick test song or use the `TEST_ROUTINE` song, which tests every possible note for all six strings and four frets. Listen for buzz or dead note.  |
+| **3. Release angle** | Set `release = neutral` unless you need the finger to stay closer to the fret (rare).                                                                                                                                                                            |
+| **4. Repeat**        | Work through every string/fret combo you care about.                                                                                                                                                                                                             |
+
+# 9. Known Issues
+- Raspberry Pi brownouts
+- Touchscreen sometimes does not work – restarting Pi usually fixes this
+
