@@ -116,7 +116,7 @@ If Pi instability is observed, it can also be powered by a dedicated USB-C wall 
 
  Download at: https://www.arduino.cc/en/software/
 
-3. **Copy the supplied libraries**
+2. **Copy the supplied libraries**
 
 The repository already contains patched versions of the required libraries:
 ```
@@ -136,16 +136,16 @@ To download code from GitHub, click **Code → Download ZIP**
 _Windows_: `Documents\Arduino\libraries`  
 _macOS/Linux_: `~/Arduino/libraries`
 
-5. **Install required libraries**
+4. **Install required libraries**
 
 Drag-and-drop everything inside `Autonomous-Guitar/Arduino/libraries/` into that folder
 
-7. **Open the sketch**
+5. **Open the sketch**
 
 In the IDE choose **File → Open…** and select: 
 `Autonomous-Guitar/Arduino/RemoteScheduler/RemoteScheduler.ino`
 
-9. **Select board and port**
+6. **Select board and port**
 - **Tools → Board** → _Arduino Mega or Mega 2560_
 - **Tools → Processor** → _ATmega2560 (Mega 2560)_
 - **Tools → Port** – pick the **serial/USB port** that appears when you plug the Mega in (e.g. `COM4` on Windows, `/dev/ttyACM0` on Linux).
@@ -155,7 +155,7 @@ In the IDE choose **File → Open…** and select:
 - Click **→ Upload** – flashing takes a few seconds.
 On success the IDE shows **“Done uploading.”**
 
-7. **Confirm serial output**
+8. **Confirm serial output**
 - Open **Tools → Serial Monitor**.
 - Set **baud = 115200** and **line ending = “Newline”**.
 - You should see: `RemoteControl: Servo drivers initialised.`
