@@ -109,12 +109,15 @@ If Pi instability is observed, it can also be powered by a dedicated USB-C wall 
 |12 – 17|Fretting (upper half)|0|6–11|
 
 # 4. Firmware Upload (Arduino Mega)
+
 *These steps should already be done (i.e., the Arduino should already be set up), but I am leaving them here just in case.*
 
-1. **Install Arduino IDE** 
+1. **Install Arduino IDE**
+
  Download at: https://www.arduino.cc/en/software/
 
-2. **Copy the supplied libraries**
+3. **Copy the supplied libraries**
+
 The repository already contains patched versions of the required libraries:
 ```
 Autonomous-Guitar/
@@ -129,17 +132,20 @@ Autonomous-Guitar/
 To download code from GitHub, click **Code → Download ZIP**
 
 3. **Locate your local Arduino libraries folder**
+
 _Windows_: `Documents\Arduino\libraries`  
 _macOS/Linux_: `~/Arduino/libraries`
 
-4. **Install required libraries**
+5. **Install required libraries**
+
 Drag-and-drop everything inside `Autonomous-Guitar/Arduino/libraries/` into that folder
 
-5. **Open the sketch**
+7. **Open the sketch**
+
 In the IDE choose **File → Open…** and select: 
 `Autonomous-Guitar/Arduino/RemoteScheduler/RemoteScheduler.ino`
 
-6. **Select board and port**
+9. **Select board and port**
 - **Tools → Board** → _Arduino Mega or Mega 2560_
 - **Tools → Processor** → _ATmega2560 (Mega 2560)_
 - **Tools → Port** – pick the **serial/USB port** that appears when you plug the Mega in (e.g. `COM4` on Windows, `/dev/ttyACM0` on Linux).
@@ -156,11 +162,13 @@ On success the IDE shows **“Done uploading.”**
 
 # 5. Software Installation (Raspberry Pi)
  1. **Flash Raspberry Pi OS & enable SSH / serial**
+
 *This step should already be done, but I am leaving it here just in case.*
 
 Refer to this webpage for more info: https://www.raspberrypi.com/documentation/computers/getting-started.html#installing-the-operating-system
 
 2. **Enable the touchscreen in the config**
+
 *This step should already be done, but I am leaving it here just in case.*
 
 Refer to this webpage for more info: https://www.waveshare.com/wiki/5inch_DSI_LCD#Method_1:_Use_Raspberry_Pi_Imager_to_Flash_Latest_Official_Image
@@ -218,6 +226,7 @@ chromium-browser --kiosk 127.0.0.1:5000
 ```
 
 8. **(Optional) Enable autostart on boot**
+
 Create `/etc/systemd/system/autonomous-guitar.service`:
 ```
 [Unit]
