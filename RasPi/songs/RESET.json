@@ -1,0 +1,5 @@
+{
+  "timeline": [
+    { "beat": 0.0, "cmd": "RESET" }
+  ]
+}

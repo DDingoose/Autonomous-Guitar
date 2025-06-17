@@ -1,0 +1,41 @@
+{
+  "name": "Test All Servos",
+  "timeline": [
+    {"beat": 0.0,  "cmd": "e0"},
+    {"beat": 1.0,  "cmd": "e1"},
+    {"beat": 2.0,  "cmd": "e2"},
+    {"beat": 3.0,  "cmd": "e3"},
+    {"beat": 4.0,  "cmd": "e4"},
+    
+    {"beat": 5.0,  "cmd": "A0"},
+    {"beat": 6.0,  "cmd": "A1"},
+    {"beat": 7.0,  "cmd": "A2"},
+    {"beat": 8.0,  "cmd": "A3"},
+    {"beat": 9.0,  "cmd": "A4"},
+    
+    {"beat": 10.0, "cmd": "D0"},
+    {"beat": 11.0, "cmd": "D1"},
+    {"beat": 12.0, "cmd": "D2"},
+    {"beat": 13.0, "cmd": "D3"},
+    {"beat": 17.0, "cmd": "G2"},
+    {"beat": 18.0, "cmd": "G3"},
+    {"beat": 14.0, "cmd": "D4"},
+    
+    {"beat": 15.0, "cmd": "G0"},
+    {"beat": 16.0, "cmd": "G1"},
+    {"beat": 19.0, "cmd": "G4"},
+    
+    {"beat": 20.0, "cmd": "B0"},
+    {"beat": 21.0, "cmd": "B1"},
+    {"beat": 22.0, "cmd": "B2"},
+    {"beat": 23.0, "cmd": "B3"},
+    {"beat": 24.0, "cmd": "B4"},
+    
+    {"beat": 25.0, "cmd": "E0"},
+    {"beat": 26.0, "cmd": "E1"},
+    {"beat": 27.0, "cmd": "E2"},
+    {"beat": 28.0, "cmd": "E3"},
+    {"beat": 29.0, "cmd": "E4"},
+    {"beat": 30.0, "cmd": "RESET"}
+  ]
+}
